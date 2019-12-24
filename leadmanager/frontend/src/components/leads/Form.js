@@ -13,11 +13,11 @@ export class Form extends Component {
   static propTypes = {
     addLead: PropTypes.func.isRequired
   };
+
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
     const { name, email, message } = this.state;
     const lead = { name, email, message };
     this.props.addLead(lead);

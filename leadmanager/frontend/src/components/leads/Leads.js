@@ -13,6 +13,7 @@ export class Leads extends Component {
   componentDidMount() {
     this.props.getLeads();
   }
+
   render() {
     return (
       <Fragment>
@@ -39,6 +40,7 @@ export class Leads extends Component {
                     onClick={this.props.deleteLead.bind(this, lead.id)}
                     className="btn btn-danger btn-sm"
                   >
+                    {" "}
                     Delete
                   </button>
                 </td>
@@ -51,8 +53,8 @@ export class Leads extends Component {
   }
 }
 
-const mapStatetoProps = state => ({
+const mapStateToProps = state => ({
   leads: state.leads.leads
 });
 
-export default connect(mapStatetoProps, { getLeads, deleteLead })(Leads);
+export default connect(mapStateToProps, { getLeads, deleteLead })(Leads);
