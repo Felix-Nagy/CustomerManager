@@ -8,4 +8,5 @@ class Lead(models.Model):
     message = models.CharField(max_length=500, blank=True)
     owner = models.ForeignKey(
         User, related_name="leads", on_delete=models.CASCADE, null=True)
+    urgency = models.IntegerField(default=3, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

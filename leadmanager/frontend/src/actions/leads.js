@@ -24,7 +24,7 @@ export const deleteLead = id => (dispatch, getState) => {
   axios
     .delete(`/api/leads/${id}/`, tokenConfig(getState))
     .then(res => {
-      dispatch(createMessage({ deleteLead: "Lead Deleted" }));
+      dispatch(createMessage({ deleteLead: "Done" }));
       dispatch({
         type: DELETE_LEAD,
         payload: id
@@ -38,7 +38,7 @@ export const addLead = lead => (dispatch, getState) => {
   axios
     .post("/api/leads/", lead, tokenConfig(getState))
     .then(res => {
-      dispatch(createMessage({ addLead: "Lead Added" }));
+      dispatch(createMessage({ addLead: "Task added" }));
       dispatch({
         type: ADD_LEAD,
         payload: res.data

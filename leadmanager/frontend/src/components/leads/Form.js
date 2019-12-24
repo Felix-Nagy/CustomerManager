@@ -7,7 +7,8 @@ export class Form extends Component {
   state = {
     name: "",
     email: "",
-    message: ""
+    message: "",
+    urgency: ""
   };
 
   static propTypes = {
@@ -18,21 +19,22 @@ export class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { name, email, message } = this.state;
-    const lead = { name, email, message };
+    const { name, email, message, urgency } = this.state;
+    const lead = { name, email, message, urgency };
     this.props.addLead(lead);
     this.setState({
       name: "",
       email: "",
-      message: ""
+      message: "",
+      urgency: ""
     });
   };
 
   render() {
-    const { name, email, message } = this.state;
+    const { name, email, message, urgency } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
-        <h2>Add Lead</h2>
+        <h2>Add Task</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name</label>
@@ -55,7 +57,7 @@ export class Form extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Message</label>
+            <label>Description</label>
             <textarea
               className="form-control"
               type="text"
@@ -63,6 +65,38 @@ export class Form extends Component {
               onChange={this.onChange}
               value={message}
             />
+          </div>
+
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              id="materialUnchecked"
+              type="radio"
+              name="urgency"
+              onChange={this.onChange}
+              value="1"
+            ></input>
+            <label style={{ marginLeft: "2px" }}>Urgent </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="urgency"
+              onChange={this.onChange}
+              value="2"
+            ></input>
+            <label style={{ marginLeft: "2px" }}>Soon</label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="urgency"
+              onChange={this.onChange}
+              value="3"
+            ></input>
+            <label style={{ marginLeft: "2px" }}>Anytime</label>
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-primary">

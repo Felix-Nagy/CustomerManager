@@ -17,31 +17,32 @@ export class Leads extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Leads</h2>
+        <h2>Clients</h2>
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Urgency</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Message</th>
+              <th>Descripion</th>
+              <th>Owner</th>
               <th />
             </tr>
           </thead>
           <tbody>
             {this.props.leads.map(lead => (
               <tr key={lead.id}>
-                <td>{lead.id}</td>
+                <td>{lead.urgency}</td>
                 <td>{lead.name}</td>
                 <td>{lead.email}</td>
                 <td>{lead.message}</td>
+                <td>{lead.owner}</td>
                 <td>
                   <button
                     onClick={this.props.deleteLead.bind(this, lead.id)}
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-success btn-sm"
                   >
-                    {" "}
-                    Delete
+                    Done
                   </button>
                 </td>
               </tr>
